@@ -7,16 +7,14 @@ Wikipedia says, Natural-language processing (NLP) is an area of computer science
 
 NSLinguisticTagger provides a uniform interface to a variety of natural language processing functionality with support for many different languages and scripts. One can use this class to segment natural language text into paragraphs , sentences, or words and tag information  about those segments such as parts of speech, lexical class, lemma, script and language.
 
-**Part of speech (POS):**
 
-In English language, noun, verb, adjective, adverb, pronoun , preposition , conjunction and interjection are part of speech.
 
-Example :
+***Coding Example :***
 
 ```
 import UIKit
 
-let inputString = "In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people."
+let inputString = "In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort."
 
 
 // tag schemes: tag schemes are constants that are used to identify pieces of information that we want from the input text. Tag schemes asks tagger to look for informations like
@@ -27,9 +25,14 @@ let inputString = "In Old Delhi, a neighborhood dating to the 1600s, stands the 
 // Lemma: this constant returns the stem of word.
 let tagger = NSLinguisticTagger(tagSchemes: [NSLinguisticTagScheme.tokenType, .language, .lexicalClass, .nameType, .lemma], options: 0)
 
-// Options are the way to tell API as how to split the text. We are asking to ignore any punctuations and any whitespaces. Also, if there is a named entity then join it together i.e instead of considering "San" "Francisco" as two entities, join them together as one which is "San Francisco"
+// Options are the way to tell API as how to split the text. We are asking to ignore any punctuations and any whitespaces. Also, if there is a named entity then join it together i.e instead of considering "New" "Delhi" as two entities, join them together as one which is "New Delhi"
 let options: NSLinguisticTagger.Options = [NSLinguisticTagger.Options.omitPunctuation, .omitWhitespace, .joinNames]
+```
+**Part of speech (POS):**
 
+In English language, noun, verb, adjective, adverb, pronoun , preposition , conjunction and interjection are part of speech.
+
+```
 func partOfSpeech() {
     tagger.string = inputString
     let range = NSRange(location: 0, length: inputString.utf16.count)
@@ -42,7 +45,29 @@ func partOfSpeech() {
     }
 }
 ```
+
+Calling the method in Playground gives the following response: 
+
+```
 partOfSpeech()
+
+Preposition -> In
+Noun -> Old Delhi
+Determiner -> a
+Noun -> neighborhood
+Verb -> dating
+Preposition -> to
+Determiner -> the
+Number -> 1600s
+Verb -> stands
+Determiner -> the
+Adjective -> imposing
+Noun -> Mughal
+Noun -> era
+Noun -> Red
+Noun -> Fort
+```
+
 
 **Lexical class:**
 
