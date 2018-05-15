@@ -83,9 +83,28 @@ The process of grouping together the inflected forms of a word so that they can 
 
 **Determine the language:**
 
-Return the dominant language for the specified string
+Return the dominant language for the specified string.
 
-**Use cases for NSLinguisticTagger: **
+```
+// Language identification
+// here we will give input string to the tagger and ask the dominant language in the string.
+// Dominant language is the most frequently occurring language in the string so if our string had mix of english, hindi, spanish and french words then it would choose the most common language
+
+func languageIdentification() {
+    tagger.string = inputString
+    print(tagger.dominantLanguage!)
+}
+```
+
+Calling the method gives output as :
+
+``` languageIdentification()
+
+en
+
+```
+
+**Use cases for NSLinguisticTagger:**
 
 1) Voice driven search - Parse and lemmatize the search command. Define grammar to map the spoken search command into an actual search query
 
