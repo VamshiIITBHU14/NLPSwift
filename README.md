@@ -77,6 +77,34 @@ Lexical class is same as POS but may exclude parts of speech that are considered
 
 Names of person or places
 
+```
+func namedEntity(str: String) {
+    tagger.string = str
+    
+    let range = NSRange(location: 0, length: str.utf16.count)
+    
+    let tags: [NSLinguisticTag] = [NSLinguisticTag.personalName, .placeName, .organizationName]
+    
+    tagger.enumerateTags(in: range, unit: NSLinguisticTaggerUnit.word, scheme: NSLinguisticTagScheme.nameType, options: options) { (tag, tokenRange, _) in
+        
+        if let tag = tag, tags.contains(tag) {
+            let name = (str as NSString).substring(with: tokenRange)
+            print("\(name) : \(tag.rawValue)")
+        }
+        
+    }
+}
+
+namedEntity(str: inputString)
+```
+
+Output:
+
+```
+Old Delhi : PlaceName
+
+```
+
 **Perform Lemmatization:**
 
 The process of grouping together the inflected forms of a word so that they can be analysed as a single item, identified by the word's lemma. Eg: go, goes, gone, went are lemma of go.
