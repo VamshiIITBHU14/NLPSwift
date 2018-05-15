@@ -7,7 +7,7 @@ Wikipedia says, Natural-language processing (NLP) is an area of computer science
 
 NSLinguisticTagger provides a uniform interface to a variety of natural language processing functionality with support for many different languages and scripts. One can use this class to segment natural language text into paragraphs , sentences, or words and tag information  about those segments such as parts of speech, lexical class, lemma, script and language.
 
-**Part of speech (POS) :***
+**Part of speech (POS) :**
 
 In English language, noun, verb, adjective, adverb, pronoun , preposition , conjunction and interjection are part of speech.
 
