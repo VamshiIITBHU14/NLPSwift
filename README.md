@@ -23,7 +23,7 @@ Names of person or places
 
 The process of grouping together the inflected forms of a word so that they can be analysed as a single item, identified by the word's lemma. Eg: go, goes, gone, went are lemma of go.
 
-Determine the language:
+**Determine the language:**
 
 Return the dominant language for the specified string
 
