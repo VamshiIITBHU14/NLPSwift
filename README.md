@@ -109,6 +109,39 @@ Old Delhi : PlaceName
 
 The process of grouping together the inflected forms of a word so that they can be analysed as a single item, identified by the word's lemma. Eg: go, goes, gone, went are lemma of go.
 
+// Lemmatization is the process of breaking down word into its most basic form. For example, "go" can be transformed into "gone", "will go", "went" etc and since therere are so many forms for NLP to understand it better the words are converted into their base root, like in this case all the above forms transform to "go" and this "go" is known as Lemma
+
+```
+func lemmatizeString() {
+    tagger.string = inputString
+    
+    let range = NSRange(location: 0, length: inputString.utf16.count)
+    
+    tagger.enumerateTags(in: range, unit: NSLinguisticTaggerUnit.word, scheme: NSLinguisticTagScheme.lemma, options: options) { (tag, tokenRange, _) in
+        if let lemma = tag?.rawValue {
+            print(lemma)
+        }
+    }
+}
+
+lemmatizeString()
+```
+
+Output:
+```
+in
+a
+date
+to
+the
+stand
+the
+imposing
+era
+red
+fort
+```
+
 **Determine the language:**
 
 Return the dominant language for the specified string.
