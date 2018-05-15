@@ -30,7 +30,6 @@ let tagger = NSLinguisticTagger(tagSchemes: [NSLinguisticTagScheme.tokenType, .l
 // Options are the way to tell API as how to split the text. We are asking to ignore any punctuations and any whitespaces. Also, if there is a named entity then join it together i.e instead of considering "San" "Francisco" as two entities, join them together as one which is "San Francisco"
 let options: NSLinguisticTagger.Options = [NSLinguisticTagger.Options.omitPunctuation, .omitWhitespace, .joinNames]
 
-// Parts of Speech
 func partOfSpeech() {
     tagger.string = inputString
     let range = NSRange(location: 0, length: inputString.utf16.count)
@@ -42,8 +41,8 @@ func partOfSpeech() {
         }
     }
 }
-
-partOfSpeech()```
+```
+partOfSpeech()
 
 **Lexical class:**
 
