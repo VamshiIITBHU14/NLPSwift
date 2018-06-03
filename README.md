@@ -1,4 +1,5 @@
-**EDIT as per 02, June, 2018 (IST) **:
+
+**EDIT as per 02, June, 2018 (IST)**
 
 Whole of the README translated to Russian by @Gargo. Please find it hosted here. 
 http://gargo.of.by/nlpswift/
